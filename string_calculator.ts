@@ -3,6 +3,11 @@ export class StringCalculator {
       if(!input)
         return 0;
 
-      return parseInt(input);
+      const numbers = input.split(",");
+      let sum = 0;
+
+      numbers.forEach((value) => sum += parseInt(value));
+
+      return sum;
     }
 }
