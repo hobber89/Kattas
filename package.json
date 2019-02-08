@@ -1,0 +1,14 @@
+{
+  "name": "StringCalculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Wolfgang Wieser <w.wies3r@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/jest": "^24.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "typescript": "^3.3.1"
+  }
+}
