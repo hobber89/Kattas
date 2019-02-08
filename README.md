@@ -14,3 +14,7 @@ To convert .ts files I executed following commands:
 
 * node_modules/.bin/tsc --init
 * node_modules/.bin/tsc -watch
+
+To run the tests I execute following command:
+
+* node_modules/mocha/bin/mocha tests/*.js
