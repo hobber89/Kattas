@@ -25,6 +25,11 @@ export class StringCalculator {
       if(!input.startsWith('//') || index < 0) {
         return input;
       }
+      if(input.startsWith('//[') && index > 0) {
+        const separatorArray = input.substr(3, index - 4);
+        this.separators = this.separators.concat(separatorArray.split(']['));
+        return input.substring(index + 1);
+      }
       else {
         const separator = input.substr(2, index - 2);
         this.separators.push(separator);

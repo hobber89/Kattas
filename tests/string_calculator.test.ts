@@ -48,4 +48,10 @@ describe('StringCalculator', function() {
   it('large number', function() {
     expect(stringCalculator.Add('1001,2', 1000)).to.be.equal(2);
   });
+
+  it('explicit separator array', function() {
+    expect(stringCalculator.Add('//[|||]\n1|||2|||3', 1000)).to.be.equal(6);
+    expect(stringCalculator.Add('//[|][%]\n1|2%3', 1000)).to.be.equal(6);
+    expect(stringCalculator.Add('//[SEP1][SEP2][SEP3]\n1SEP12SEP23SEP34', 1000)).to.be.equal(10);
+  });
 });
