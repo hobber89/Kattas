@@ -27,4 +27,8 @@ describe('StringCalculator', function() {
     expect(stringCalculator.Add('1\n2,1')).to.be.equal(4);
     expect(stringCalculator.Add('1\n2,3,2,1')).to.be.equal(9);
   });
+
+  it('explicit separator', function() {
+    expect(stringCalculator.Add('//;\n1;2')).to.be.equal(3);
+  });
 });

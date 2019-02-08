@@ -20,13 +20,25 @@ export class StringCalculator {
       this.numberStrings = [];
     }
 
+    private determineSeparators(input: string): string {
+      const index = input.indexOf('\n');
+      if(!input.startsWith('//') || index < 0) {
+        return input;
+      }
+      else {
+        const separator = input.substr(2, index - 2);
+        this.separators.push(separator);
+        return input.substring(index + 1);
+      }
+    }
+
     Add(input: string ): number {
       this.reset();
 
       if(!input)
         return 0;
 
-      this.numberStrings = [input];
+      this.numberStrings = [this.determineSeparators(input)];
       for(var index = 0; index < this.separators.length; index++)
         this.splitNumberStrings(index);
 
