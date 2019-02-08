@@ -43,7 +43,17 @@ export class StringCalculator {
         this.splitNumberStrings(index);
 
       let sum = 0;
-      this.numberStrings.forEach((value) => sum += parseInt(value));
+      let negativeNumbers = '';
+      this.numberStrings.forEach((valueString) => {
+        const value = parseInt(valueString);
+        if(value < 0)
+          negativeNumbers += (negativeNumbers.length ? ',' : '') + value;
+        else
+          sum += value;
+      });
+
+      if(negativeNumbers.length)
+        throw new Error('Negatives not allowed: ' + negativeNumbers);
       return sum;
     }
 }

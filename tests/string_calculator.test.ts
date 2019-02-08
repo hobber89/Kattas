@@ -6,6 +6,14 @@ describe('StringCalculator', function() {
 
   const stringCalculator = new StringCalculator();
 
+  const expectException = function(input: string, errorMessage: string) {
+    try {
+      stringCalculator.Add(input);
+    } catch(error) {
+      expect(error.message).to.be.equal(errorMessage);
+    }
+  }
+
   it('empty input', function() {
     expect(stringCalculator.Add('')).to.be.equal(0);
   });
@@ -30,5 +38,10 @@ describe('StringCalculator', function() {
 
   it('explicit separator', function() {
     expect(stringCalculator.Add('//;\n1;2')).to.be.equal(3);
+  });
+
+  it('negative numbers', function() {
+    expectException('-1,2', 'Negatives not allowed: -1');
+    expectException('2,-4,3,-5', 'Negatives not allowed: -4,-5');
   });
 });
