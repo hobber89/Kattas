@@ -21,4 +21,10 @@ describe('StringCalculator', function() {
     expect(stringCalculator.Add('1,2,1')).to.be.equal(4);
     expect(stringCalculator.Add('1,2,3,2,1')).to.be.equal(9);
   });
+
+  it('sequence with new line', function() {
+    expect(stringCalculator.Add('1\n1')).to.be.equal(2);
+    expect(stringCalculator.Add('1\n2,1')).to.be.equal(4);
+    expect(stringCalculator.Add('1\n2,3,2,1')).to.be.equal(9);
+  });
 });

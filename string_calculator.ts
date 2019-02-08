@@ -1,7 +1,7 @@
 export class StringCalculator {
 
     private numberStrings: string[] = [];
-    private separators: string[] = [','];
+    private separators: string[] = [',', '\n'];
 
     constructor() {
 
@@ -27,11 +27,11 @@ export class StringCalculator {
         return 0;
 
       this.numberStrings = [input];
-      this.splitNumberStrings(0);
+      for(var index = 0; index < this.separators.length; index++)
+        this.splitNumberStrings(index);
+
       let sum = 0;
-
       this.numberStrings.forEach((value) => sum += parseInt(value));
-
       return sum;
     }
 }
