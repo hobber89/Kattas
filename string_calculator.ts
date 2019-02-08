@@ -32,7 +32,7 @@ export class StringCalculator {
       }
     }
 
-    Add(input: string ): number {
+    Add(input: string, maxNumber?: number): number {
       this.reset();
 
       if(!input)
@@ -48,6 +48,8 @@ export class StringCalculator {
         const value = parseInt(valueString);
         if(value < 0)
           negativeNumbers += (negativeNumbers.length ? ',' : '') + value;
+        if(maxNumber !== undefined && value > maxNumber)
+          return;
         else
           sum += value;
       });

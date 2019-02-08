@@ -44,4 +44,8 @@ describe('StringCalculator', function() {
     expectException('-1,2', 'Negatives not allowed: -1');
     expectException('2,-4,3,-5', 'Negatives not allowed: -4,-5');
   });
+
+  it('large number', function() {
+    expect(stringCalculator.Add('1001,2', 1000)).to.be.equal(2);
+  });
 });
